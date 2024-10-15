@@ -1,0 +1,64 @@
+
+POST http://localhost:3000/api/lists
+Content-Type: application/json
+
+{
+    "title": "lista noturna",
+    "author" : "jose",
+    "description" : "lista de tarefas noturnas",
+    "tasks": [
+        {
+            "title": "Estudar html",
+            "completed": true
+        },
+        {
+            "title": "Estudar js",
+            "completed": false
+        }
+    ]
+}
+
+### 
+
+POST http://localhost:3000/api/lists
+Content-Type: application/json
+
+{
+    "title": "lista diurna",
+    "author" : "jose",
+    "description" : "lista de tarefas noturnas",
+    "tasks": [
+        {
+            "title": "Estudar python",
+            "completed": true
+        }    
+    ]
+}
+
+###
+GET http://localhost:3000/api/lists
+
+###
+
+POST http://localhost:3000/api/lists/670ea7e6e28e089c7e23c503/addTask
+Content-Type: application/json
+
+{
+    "title": "Estudar python",
+    "completed": false
+}
+
+###
+
+POST http://localhost:3000/api/lists/670ea7e6e28e089c7e23c503/removeTask
+Content-Type: application/json
+
+{
+    "taskTitle": "Estudar node"
+}
+
+
+
+
+
+

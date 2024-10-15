@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const {TaskSchema} = require('./Task')
-
 const ListSchema = new Schema({
     title: {
         type: String,
@@ -16,11 +14,18 @@ const ListSchema = new Schema({
         type: String,
         required: true
     },
-    services: {
-        type : [TaskSchema],
-    },
+    tasks: [{
+        title: {
+            type: String,
+            required: true
+        },
+        completed: {
+            type: Boolean,
+            default: false
+        }
+    }]
 }, {timestamps: true});
 
 const List = mongoose.model('List', ListSchema);
 
-module.exports= List;
+module.exports = List;
