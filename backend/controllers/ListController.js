@@ -5,7 +5,6 @@ const ListController = {
         try {
             const list = {
                 title: req.body.title,
-                author: req.body.author,
                 description: req.body.description,
                 tasks: req.body.tasks,
             };
