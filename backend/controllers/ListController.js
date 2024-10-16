@@ -5,13 +5,12 @@ const ListController = {
         try {
             const list = {
                 title: req.body.title,
-                description: req.body.description,
-                tasks: req.body.tasks,
+                description: req.body.description
             };
 
             const response = await ListModel.create(list);
 
-            res.status(201).json({ response, msg: "List created successfully" });
+            res.status(201).json({ listId: response._id, msg: "List created successfully" });
         } catch (error) {
             console.log(error);
         }
@@ -71,7 +70,7 @@ const ListController = {
                 return res.status(404).json({ msg: "List not found" });
             }
 
-            list.tasks.push({ title, completed: false });
+            list.tasks.push({ title });
 
             const updatedList = await list.save();
 
