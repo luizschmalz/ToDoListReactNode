@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <NewList />
       },
       {
-        path: '/list/:id',
+        path: '/lists/:id',
         element: <SingleList />
       }
     ]

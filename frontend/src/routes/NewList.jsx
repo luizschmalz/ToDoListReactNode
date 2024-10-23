@@ -32,7 +32,7 @@ const NewList = () => {
       setTaskTitle('');
       setTasks([...tasks, newTask]);
       ListFetch.post(`/lists/${listId}/addTask`, newTask);
-    }catch(err){
+    }catch(err){ 
       console.log(err)
     }
 

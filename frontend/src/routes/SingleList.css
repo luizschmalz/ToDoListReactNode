@@ -1,0 +1,81 @@
+.SingleList{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 4rem;
+    background-color: #ccc;
+    padding: 2rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.addDelBtn{
+    background-color: #7703fc;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s;
+    font-weight: bold;
+}
+
+.addDelBtn:hover{
+    background-color: #fff;
+    color: #7703fc;
+}
+
+.firstdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    margin-bottom: 1rem;
+}
+
+.backBtn{
+    background-color: #7703fc;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s;
+    font-weight: bold;
+    width: 200px;
+    margin-top: 1rem;
+}
+
+.backdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backBtn:hover{
+    background-color: #fff;
+    color: #7703fc;
+}
+
+.SingleList h4{
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none !important;
+}
+
+.addItemDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.addItemDiv input{
+    width: 70%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px; 
+
+}
