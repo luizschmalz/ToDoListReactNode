@@ -33,6 +33,16 @@ const SingleList = () => {
     }
   }
 
+  const deleteList = async () => {
+    try{
+      await ListFetch.delete(`/lists/${id}`)
+      navigate('/')
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
   const showAddItem = () => {
     const addItemDiv = document.querySelector('.addItemDiv')
     addItemDiv.classList.toggle('hide')
@@ -54,7 +64,10 @@ const SingleList = () => {
     <div className='SingleList'>
       <div className="firstdiv">
         <h2>{list.title}</h2>
+        <div className="subdiv">
+        <button className='addDelBtn' onClick = {() => deleteList()}>Deletar Lista</button>
         <button className='addDelBtn' onClick={() => showAddItem()}>Adicionar Itens</button>
+        </div>
       </div>
       <p>{list.description}</p>
       <div className="addItemDiv hide">

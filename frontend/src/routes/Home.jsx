@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Suas Listas</h1>
+      <h2>Suas Listas</h2>
       <div className="listcontainer">
         {lists.lenght === 0 && <p>Não há listas cadastradas</p>}
         {lists.map((list) => (

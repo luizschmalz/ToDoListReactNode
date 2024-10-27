@@ -66,4 +66,5 @@
 .completed{
     text-decoration: line-through;
     color: #777;
+    font-style: italic;
 }
