@@ -7,18 +7,30 @@ import './Home.css'
 const Home = () => {
 
   const [lists, setList] = useState(null)
+  const [filteredLists, setFilteredLists] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [completedTasks, setCompletedTasks] = useState({});
 
   useEffect(() => {
-    
     const loadList = async () => {
-      const res = await ListFetch.get('/lists')
-
-      setList(res.data)
-    }
+      const res = await ListFetch.get('/lists');
+      setList(res.data);
+      setFilteredLists(res.data); 
+    };
     
-    loadList()
-  }, [])
+    loadList();
+  }, []);
+
+  useEffect(() => {
+    if (lists) {
+      const filtered = lists.filter((list) =>
+        list.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      console.log(searchTerm)
+      setFilteredLists(filtered);
+    }
+  }, [searchTerm, lists]); 
+
 
   if(!lists) return <p>Loading...</p>
   
@@ -29,13 +41,21 @@ const Home = () => {
       }));
   };
 
-
   return (
     <div className="home">
       <h2>Suas Listas</h2>
+      <div className="search-list">
+        <input 
+          type="text" 
+          placeholder="Buscar listas por nome..." 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} 
+          className="search-bar"
+        />
+      </div>
       <div className="listcontainer">
-        {lists.lenght === 0 && <p>Não há listas cadastradas</p>}
-        {lists.map((list) => (
+        {filteredLists.lenght === 0 && <p>Não há listas cadastradas</p>}
+        {filteredLists.map((list) => (
           <div key={list._id} className="list">
             <h2>{list.title}</h2>
             <p>{list.description}</p>
